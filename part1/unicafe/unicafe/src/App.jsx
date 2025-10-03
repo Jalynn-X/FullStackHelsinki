@@ -9,8 +9,14 @@ const Button = (props) => {
   )
 }
 
-const StatisticLine = ( {text, value} ) => (<div>{text} {value}</div>)
-
+const StatisticLine = ( {text, value} ) => {
+  return (
+    <tr>
+      <td>{text}</td>
+      <td>{value}</td>
+    </tr>
+  )
+}
 const Statistics = (props) => {
   const all = () => props.good + props.neutral + props.bad
   const average = () => (props.good * 1 + props.neutral * 0 + props.bad * -1) / all()
