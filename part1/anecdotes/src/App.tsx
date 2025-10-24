@@ -1,5 +1,19 @@
 import { useState } from 'react'
 
+const Display = (text) => {
+  return (
+    <div>
+    {text}
+    </div>
+  )
+}
+
+const Button = ({onClick, text}) => {
+  return (
+    <button onClick={onClick}>{text}</button>
+  )
+}
+
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often.',
@@ -25,11 +39,11 @@ const App = () => {
   return (
     <div>
       <h1>Aecdote of the day</h1>
-      {anecdotes[selected]}<br />
-      <button onClick={() => setSelected(getRandomInt(8))}>next anecdote</button>
-      <button onClick={() => increment()}>vote</button>
+      <Display text={anecdotes[selected]} />
+      <Button onClick={() => setSelected(getRandomInt(8))} text='next anecdote' />
+      <Button onClick={increment} text='vote' />
       <h1>Aecdote with most votes</h1>
-      {anecdotes[mostVoted]}<br />
+      <Display text={anecdotes[mostVoted]} />
     </div>
   )
 }
